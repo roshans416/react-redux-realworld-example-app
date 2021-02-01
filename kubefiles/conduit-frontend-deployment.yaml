@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: conduit-frontend
+  name: conduit-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: conduit-frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: conduit-frontend
+    spec:
+      containers:
+      - image: harbor.briagro.lab/bripoc/conduit-frontend:latest
+        name: conduit-frontend
+        resources: {}
+status: {}
