@@ -18,7 +18,15 @@ spec:
         run: conduit-frontend
     spec:
       containers:
-      - image: harbor.briagro.lab/bripoc/conduit-frontend:latest
-        name: conduit-frontend
-        resources: {}
+        - image: harbor.briagro.lab/bripoc/conduit-frontend:latest
+          name: conduit-frontend
+          resources: {}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /app/src/agent.js
+            subPath: agent.js
+      volumes:
+        - name: config-volume
+          configMap:
+            name: conduit-frontend-cm
 status: {}
